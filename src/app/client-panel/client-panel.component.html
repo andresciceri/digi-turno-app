@@ -60,31 +60,31 @@
             </a>
         </div>
     </div>
-
-    <div class="row">
-        <div class="container" [hidden]="submitted">
-            <h1>Ingrese sus datos</h1>
-            <form *ngIf="active" (ngSubmit)="onSubmit()" #nameForm="ngForm">
-              <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name"  #name="ngModel">
-                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                  Nombre requerido
-                </div>
-                <button type="submit" class="btn btn-default">Tomar turno</button>
-              </div>
-            </form>
-        </div>
+</div>
+<div class="row">
+    <div class="container col-lg-12" [hidden]="submitted">
+        <h1>Ingrese sus datos</h1>
+        <form *ngIf="active" (ngSubmit)="onSubmit()" #nameForm="ngForm">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name"  #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              Nombre requerido
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Tomar turno</button>
+          </div>
+        </form>
     </div>
-    <div class="row" [hidden]="reponseTurn">
-        <div class="panel panel-success col-lg-6">
-            <div class="panel-heading">
-                <h3> Su turno es: </h3>
-            </div>
-            <div class="panel-body">
-                <h2>{{client.turn}}</h2>
-            </div>
-            <!-- /.panel-body -->
+</div>
+<div class="row" [hidden]="reponseTurn">
+    <div class="panel panel-success col-lg-6">
+        <div class="panel-heading">
+            <h3> Su turno es: </h3>
         </div>
+        <div class="panel-body">
+            <h2>{{client.turn}}</h2>
+        </div>
+        <!-- /.panel-body -->
     </div>
 </div>

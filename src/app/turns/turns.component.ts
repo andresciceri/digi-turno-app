@@ -16,7 +16,12 @@ export class TurnsComponent implements OnInit {
   constructor(private af: AngularFire) { }
 
   ngOnInit() {
-  	this.listTurn = this.af.database.list('/actual/');
+  	this.listTurn = this.af.database.list('/actual',{
+	      query: {
+	        limitToLast: 1
+	    	}
+	      });
+
   }
 
 }
