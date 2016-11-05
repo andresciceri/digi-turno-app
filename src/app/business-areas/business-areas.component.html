@@ -17,36 +17,16 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Nombre</th>
                                 <th>Turno</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="success">
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>C2</td>
-                                <td><button type="button" class="btn btn-primary btn-sm">Atender</button></td>
-                            </tr>
-                            <tr class="info">
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>C4</td>
-                                <td><button type="button" class="btn btn-primary btn-sm">Atender</button></td>
-                            </tr>
-                            <tr class="warning">
-                                <td>3</td>
-                                <td>Larry</td>
-                                <td>C5</td>
-                                <td><button type="button" class="btn btn-primary btn-sm">Atender</button></td>
-                            </tr>
-                            <tr class="danger">
-                                <td>4</td>
-                                <td>John</td>
-                                <td>C6</td>
-                                <td><button type="button" class="btn btn-primary btn-sm">Atender</button></td>
+                            <tr class="success" *ngFor="let turn of turns | async">
+                                <td>{{turn.name}}</td>
+                                <td>{{turn.turn}}</td>
+                                <td><button type="button" class="btn btn-primary btn-sm" (click)="updateTurn(turn.$key, turn)">Atender</button></td>
                             </tr>
                         </tbody>
                     </table>

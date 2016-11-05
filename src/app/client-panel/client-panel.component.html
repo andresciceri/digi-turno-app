@@ -16,10 +16,10 @@
                 </div>
             </div>
             <a href="#">
-                <div class="panel-footer">
+                <div class="panel-footer" (click) = "onSelectTurn('cajas')">
                     <span class="pull-left">Seleccionar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
+                    <div class="clearfix" ></div>
                 </div>
             </a>
         </div>
@@ -58,6 +58,33 @@
                     <div class="clearfix"></div>
                 </div>
             </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container" [hidden]="submitted">
+            <h1>Ingrese sus datos</h1>
+            <form *ngIf="active" (ngSubmit)="onSubmit()" #nameForm="ngForm">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name"  #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  Nombre requerido
+                </div>
+                <button type="submit" class="btn btn-default">Tomar turno</button>
+              </div>
+            </form>
+        </div>
+    </div>
+    <div class="row" [hidden]="reponseTurn">
+        <div class="panel panel-success col-lg-6">
+            <div class="panel-heading">
+                <h3> Su turno es: </h3>
+            </div>
+            <div class="panel-body">
+                <h2>{{client.turn}}</h2>
+            </div>
+            <!-- /.panel-body -->
         </div>
     </div>
 </div>

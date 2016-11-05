@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { Subject } from 'rxjs/Subject';
+import { Client } from '../client-panel/client';
+import { Turn } from '../business-areas/turn';
 
 @Component({
   selector: 'app-turns',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TurnsComponent implements OnInit {
 
-  constructor() { }
+	listTurn: FirebaseListObservable<any[]>;
+
+  constructor(private af: AngularFire) { }
 
   ngOnInit() {
+  	this.listTurn = this.af.database.list('/actual/');
   }
 
 }
